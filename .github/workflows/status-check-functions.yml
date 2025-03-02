@@ -1,0 +1,11 @@
+name: Status Check functions
+on: push
+jobs:
+  fail-check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 1
+      # ステータスが0以外のためエラーが発生する
+      - run: echo "Hello after exit 1"
+        if: ${{failure()}}
+        # ifでfailure()メソッドを呼んでいるため、エラーが発生した場合に実行される
