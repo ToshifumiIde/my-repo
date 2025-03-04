@@ -1,0 +1,11 @@
+name: Concurrency
+on: push
+defaults:
+  run:
+    shell: bash
+concurrency: ${{ github.workflow }} # Concurrencyグループへワークフローを指定
+jobs:
+  sleep:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 120
