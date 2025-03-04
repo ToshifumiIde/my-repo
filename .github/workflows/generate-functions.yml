@@ -1,5 +1,8 @@
 name: Generate String functions
 on: push
+defaults:
+  run:
+    shell: bash
 jobs:
   generate:
     runs-on: ubuntu-latest

@@ -1,5 +1,8 @@
 name: Compare functions
 on: push
+defaults:
+  run:
+    shell: bash
 jobs:
   compare:
     runs-on: ubuntu-latest
@@ -9,4 +12,3 @@ jobs:
           CONTAINS_FUNC: ${{ contains('Hello' , 'ell') }}
           STARTS_WITH_FUNC: ${{startsWith('Hello' , 'He') }}
           ENDS_WITH_FUNC: ${{endsWith('Hello' , 'lo') }}
-
