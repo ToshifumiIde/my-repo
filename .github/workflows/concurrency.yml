@@ -8,4 +8,5 @@ jobs:
   sleep:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 120
+      - run: sleep 1
+      # sleepを120にして連続pushすると、ワークフローを指定しているので直前のフローが実行中は待機する
