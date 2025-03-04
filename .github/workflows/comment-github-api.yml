@@ -1,5 +1,8 @@
 name: Comment
 on: push
+defaults:
+  run:
+    shell: bash
 jobs:
   comment:
     runs-on: ubuntu-latest

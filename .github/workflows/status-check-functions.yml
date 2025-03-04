@@ -1,5 +1,8 @@
 name: Status Check functions
 on: push
+defaults:
+  run:
+    shell: bash
 jobs:
   fail-check:
     runs-on: ubuntu-latest

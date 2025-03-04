@@ -4,6 +4,10 @@ on:
   pull_request:
     paths: ["go/**/*.go"]
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   test:
     runs-on: ubuntu-latest

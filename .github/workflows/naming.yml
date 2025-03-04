@@ -1,5 +1,8 @@
 name: Naming
-on: push 
+on: push
+defaults:
+  run:
+    shell: bash
 jobs:
   print:
     name: Super Useful Jobs

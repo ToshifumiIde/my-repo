@@ -1,5 +1,8 @@
 name: Literals
 on: push
+defaults:
+  run:
+    shell: bash
 jobs:
   print:
     runs-on: ubuntu-latest

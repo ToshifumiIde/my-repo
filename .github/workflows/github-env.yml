@@ -1,5 +1,8 @@
 name: GITHUB_ENV
 on: push
+defaults:
+  run:
+    shell: bash
 jobs:
   github-env-set:
     runs-on: ubuntu-latest

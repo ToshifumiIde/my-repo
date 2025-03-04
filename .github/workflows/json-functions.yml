@@ -1,5 +1,8 @@
 name: JSON functions
 on: push
+defaults:
+  run:
+    shell: bash
 jobs:
   dump-to-json:
     runs-on: ubuntu-latest
