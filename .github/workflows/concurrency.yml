@@ -1,0 +1,12 @@
+name: Concurrency
+on: push
+defaults:
+  run:
+    shell: bash
+concurrency: ${{ github.workflow }} # Concurrencyグループへワークフローを指定
+jobs:
+  sleep:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 1
+      # sleepを120にして連続pushすると、ワークフローを指定しているので直前のフローが実行中は待機する

@@ -1,0 +1,12 @@
+name: Auto Cancel
+on: pull_request
+concurrency:
+  group: ${{github.workflow}}-${{github.ref}} # Currencyグループへgithub.refプロパティ（ブランチ名）を含めている
+  # 同一PRの同じワークフローが複数起動した場合に、古いワークフローをキャンセル可能
+  # Currencyグループをgithub.workflowプロパティで指定することで、異なるPRではキャンセルされないように設定している
+  cancel-in-progress: true
+jobs:
+  auto-cancel:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 10
