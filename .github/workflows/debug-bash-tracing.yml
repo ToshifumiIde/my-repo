@@ -1,0 +1,14 @@
+name: Debug Bash Tracing
+defaults:
+  run:
+    shell: bash
+on: push
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run:
+          | # "set -x"にてBashのトレーシングオプションを有効化する、実行したコマンドとコマンドの実行結果を表示
+          set -x 
+          date
+          hostname
