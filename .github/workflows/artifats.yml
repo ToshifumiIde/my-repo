@@ -1,0 +1,24 @@
+name: Artifacts
+defaults:
+  run:
+    shell: bash
+on: push
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - run: date > date.txt # アーティファクトの生成
+      - uses: actions/upload-artifact@v4 # アーティファクトのアップロードでアクションを指定
+        with:
+          name: uploaded # アーティファクト名
+          path: date.txt # アップロードファイルのパス（ディレクトリを指定すると、ディレクトリ配下のファイルがまとめてUPされる）
+          retention-days: 1 # アーティファクトの保存期間
+  download:
+    needs: [upload] # 依存関係を明記（uploadを指定しないと、アーティファクトが生成されていないままDLが開始されて失敗する）
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4 # アーティファクトのダウンロードでアクションを指定
+        with:
+          name: uploaded # ダウンロード対象のアーティファクト名
+          path: downloaded # アーティファクトのダウンロード先のパス（zip圧縮されていないので、後続でそのまま使用可能）
+      - run: cat downloaded/date.txt # ダウンロードしたファイルの標準出力
