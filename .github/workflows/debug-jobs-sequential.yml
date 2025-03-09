@@ -1,0 +1,20 @@
+name: Jobs Sequential
+defaults:
+  run:
+    shell: bash
+on: push
+jobs: # 逐次実行する場合、各jobに対しneeds: [<job-id-1> , <job-id-2> , ...]を指定する
+  first:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 10 && echo "first job"
+  second:
+    needs: [first] # job-idがfirstのjobに依存
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 10 && echo "second job"
+  third:
+    needs: [second] # job-idがsecondのjobに依存
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 10 && echo "third job"
