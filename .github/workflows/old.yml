@@ -1,0 +1,7 @@
+name: Old
+on: workflow_dispatch
+jobs:
+  old-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-go@v4 # Dependabotによる自動検知テストのため、古いタグを指定
