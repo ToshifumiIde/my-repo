@@ -1,0 +1,14 @@
+name: Debug Job Summaries
+defaults:
+  run:
+    shell: bash
+on: push
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run:
+          | # マークダウンテキストを用意して、それをジョブサマリーの変数に格納する
+          echo "## Example Title :rocket:" >> "${GITHUB_STEP_SUMMARY}"
+          echo "- first title" >> "${GITHUB_STEP_SUMMARY}"
+          echo "- second title"  >> "${GITHUB_STEP_SUMMARY}"

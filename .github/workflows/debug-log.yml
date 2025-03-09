@@ -1,0 +1,13 @@
+name: Debug Log
+defaults:
+  run:
+    shell: bash
+on: push
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "::debug::This is a debug log."
+      # echoの""内に::debug::を入れることでデバッグログが有効化される
+      # デフォルトではデバッグが無効化されているため、GitHub側で有効化の設定を実施する必要がある
+      # GitHubのActionsから該当Jobを確認し「Re-run all jobs」から「Enable debug logging」にチェックを入れて実行する

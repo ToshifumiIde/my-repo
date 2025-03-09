@@ -1,0 +1,14 @@
+name: Debug Log Group
+defaults:
+  run:
+    shell: bash
+on: push
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run:
+          | # ::group::と::endgroup::コマンドを実行することで、ログをグループ化可能
+          echo "::group::Show environment variables"
+          printenv
+          echo "::endgroup::"

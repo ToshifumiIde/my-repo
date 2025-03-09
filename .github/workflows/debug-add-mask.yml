@@ -1,0 +1,16 @@
+name: Debug Add Mask
+defaults:
+  run:
+    shell: bash
+on: push
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    env:
+      PASSWORD: SuperSecretValue
+    steps:
+      - run: echo "::add-mask::${PASSWORD}"
+        # ::add-mask::を追加して閲覧できなくなるか確認、envがハードコードされているのであくまでコマンドの実行結果のみ確認する
+      - run: echo "${PASSWORD}"
+        # こちらのechoではenvのPASSWORDがそのまま表示されることが期待される
