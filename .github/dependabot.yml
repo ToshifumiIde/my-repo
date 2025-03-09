@@ -1,0 +1,9 @@
+version: 2 # 設定ファイル自体のバージョン
+updates: # 依存関係のアップデート設定
+  - package-ecosystem: github-actions # パッケージエコシステム、ツールの識別子を指定する、今回はGitHub Actionsを自動バージョンアップする
+    directory: /
+    # パッケージマニフェスト（依存関係のバージョンが記述されたファイル）の配置先ディレクトリ、package.jsonやDockerfileなどが該当
+    # GitHub Actionsのみ固定で「/」
+    schedule: # バージョンアップスケジュール
+      interval: daily
+      # バージョンアップ間隔、daily weekly monthly の指定が可能
